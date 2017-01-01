@@ -1,3 +1,6 @@
+CFLAGS_board-msm-bcm4356.o := -fno-strict-aliasing
+CFLAGS_rpm_log.o := -fno-strict-aliasing
+
 obj-y += io.o dma.o memory.o
 ifndef CONFIG_ARM_ARCH_TIMER
 obj-y += timer.o
@@ -78,6 +81,8 @@ obj-$(CONFIG_ARCH_MSM8610) += board-8610.o board-8610-gpiomux.o
 obj-$(CONFIG_ARCH_MSM8610) += clock-8610.o
 obj-$(CONFIG_ARCH_MSM8610) += clock-dsi-8610.o
 obj-$(CONFIG_ARCH_MDM9630) += clock-9630.o
+
+CFLAGS_msm-pm.o += -fno-aggressive-loop-optimizations
 
 obj-$(CONFIG_MSM_PM) += msm-pm.o pm-data.o lpm_levels.o
 
